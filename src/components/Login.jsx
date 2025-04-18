@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [emailId,setEmailId]=useState(" ");
 const [password,setPassword]=useState(" ");
+const [error,setError]=useState(" ");
 const dispatch=useDispatch();
 const navigate=useNavigate();
 const handlelogin=async ()=>{
@@ -23,12 +24,15 @@ const handlelogin=async ()=>{
 
     console.log("Login successful:", response.data);
     // Redirect or update UI here
+    
     dispatch(addUser(response.data));
     return navigate("/");
+    
   }
  
   catch(err)
   {
+    setError(err.response.data);
     console.log(err);
   }
 }
@@ -66,10 +70,10 @@ const handlelogin=async ()=>{
             class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
-     
+     <p className='text-red-600'>{error}</p>
       <div className="card-actions flex justify-center">
         
-        <button type="submit" className="btn " onClick={handlelogin}>Login</button>
+        <button type="submit" className="btn bg-blue-600" onClick={handlelogin}>Login</button>
       </div>
     </div>
   </div>
