@@ -9,7 +9,7 @@ const Body = () => {
   const dispatch = useDispatch();
   const navigate=useNavigate();
   const userData=useSelector((store)=>store.user);
-console.log("body me huu");
+
 
   const fetchUser = async () => {
     if(userData) return ;
@@ -19,7 +19,7 @@ console.log("body me huu");
         withCredentials: true,
         
       });
-      console.log(res.data);
+      // console.log("this is view data",res.data);
       dispatch(addUser(res.data));
     } catch (err) {
       navigate("/login");

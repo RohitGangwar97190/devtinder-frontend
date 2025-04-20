@@ -22,7 +22,7 @@ const handlelogin=async ()=>{
       }
     );
 
-    console.log("Login successful:", response.data);
+    // console.log("Login successful:", response.data);
     // Redirect or update UI here
     
     dispatch(addUser(response.data));
