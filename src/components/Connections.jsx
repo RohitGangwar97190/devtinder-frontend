@@ -2,7 +2,8 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
-import { addConnections } from '../utils/connectionSlice';
+// import { addConnections } from '../utils/connectionSlice';
+import { addConnections } from '../utils/connectionSlice'
 const Connections = () => {
     const dispatch=useDispatch();
     const connections=useSelector((store)=>store.connections);
